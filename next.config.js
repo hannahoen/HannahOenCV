@@ -4,6 +4,9 @@ const nextConfig = {
   basePath: '/HannahOenCV',
   images: {
     unoptimized: true
+  },
+  compiler: {
+    styledComponents: true,
   }
 }
 
