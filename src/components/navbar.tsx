@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             text: "Contact",
             url: "#contact",
         }
-    ]
+    ];
     return (
         <Container>
             <Link href="#hero">
