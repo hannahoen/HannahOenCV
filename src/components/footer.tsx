@@ -13,16 +13,19 @@ const Container = styled.div`
     justify-content: center;
     gap: 15px;
 `;
+
 const Links = styled.div`
     display: flex;
     gap: 24px;
 `;
+
 const Link = styled.a`
     svg {
         width: 50px;
         height: 50px;
     }
 `;
+
 const Copyright = styled.div`
     font-weight: 500;
     font-size: 14px;

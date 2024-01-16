@@ -15,6 +15,7 @@ const Container = styled.div`
     align-items: center;
     gap: 80px;
 `;
+
 const Links = styled.div`
     display: flex;
     flex-direction: row;
@@ -26,6 +27,7 @@ const Links = styled.div`
     background: var(--secondary);
     color: var(--tertiary)
 `;
+
 const Link = styled.a`
     color: var(--tertiary);
     font-weight: 600;
