@@ -7,7 +7,7 @@ import Portfolio from '@/components/portfolio';
 import Contact from '@/components/contact';
 
 const Container = styled.div`
-  @media(max-width: 600px) {
+  @media(max-width: 1023px) {
     padding: 24px;
   }
 `;

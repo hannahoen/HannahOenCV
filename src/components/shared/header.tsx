@@ -15,6 +15,10 @@ const Container = styled.div`
     border-style: solid;
     border-color: var(--secondary);
     height: 60px;
+
+    @media(max-width: 1023px) {
+        width: 90%;
+    }
 `;
 
 interface IProps {

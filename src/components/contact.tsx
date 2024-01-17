@@ -55,7 +55,14 @@ const SubmitBtn = styled.button`
 const Contact: React.FC = () => {
     const [state, handleSubmit] = useForm("xyyrzbla");
     if (state.succeeded) {
-        return <p>Thanks for joining!</p>;
+        return (
+            <Container>
+                <Content>
+                    <Header text="Don't be shy!"/>
+                    Thanks for contacting! I will get back to you as soon as possible 👩‍💻
+                </Content>
+            </Container>
+        );
     }
     return (
         <Container>
