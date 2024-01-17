@@ -8,7 +8,6 @@ const Hero = styled.div`
     display: flex;
     height: 100vh;
     width: 100%;
-    z-index: 990;
 `;
 
 const Heading = styled.div`
@@ -18,34 +17,49 @@ const Heading = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   line-height: normal;
-  width: fit-content;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  color: #fafafa;
+  width: 100%;
   font-weight: 300;
-  z-index: 990;
+  gap: 24px;
 `;
 
 const HeadingLine = styled.div`
   font-size: 3rem;
+  @media(max-width: 900px) {
+    text-align: center;
+  }
+  
+  @media(max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 
 const Highlight = styled.span`
   color: var(--tertiary);
 `;
 
+const ContactBtn = styled.a`
+    border-radius: 8px;
+    padding: 12px 24px;
+
+    background: var(--tertiary);
+    cursor: pointer;
+    
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 18px;
+`;
+
 const Landing: React.FC = () => {
     return (
         <Hero id="hero">
             <Heading>
-                <HeadingLine>Hello, I&apos;m <Highlight>Hannah</Highlight>! 👋</HeadingLine>
-                <HeadingLine>And I&apos;m a front-end web developer.</HeadingLine>
-                <Button 
-                    text="Contact"
-                    primary
-                />
+                <div>
+                    <HeadingLine>Hello, I&apos;m <Highlight>Hannah</Highlight>! 👋</HeadingLine>
+                    <HeadingLine>And I&apos;m a front-end web developer.</HeadingLine>
+                </div>
+                <ContactBtn href="#contact">Contact</ContactBtn>
             </Heading>
         </Hero>
     );

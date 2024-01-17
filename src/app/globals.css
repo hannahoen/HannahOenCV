@@ -1,10 +1,10 @@
 :root {
   --max-width: 1100px;
   
-  --primary: #0A100D;
+  --primary: #18261F;
   --secondary: #B9BAA3;
   --tertiary: #902923;
-  --quaternary: #D6D5C9;
+  --quaternary: #0B0B09;
   --quinary: #A22C29;
 }
 
@@ -21,9 +21,9 @@ body {
 }
 
 body {
-  color: var(--quaternary);
+  color: var(--secondary);
   font-family: Roboto;
-  background: var(--primary);
+  background: var(--quaternary);
 }
 
 a {

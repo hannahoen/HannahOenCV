@@ -1,11 +1,12 @@
 'use client';
 
 import styled from "styled-components";
-import { linkdinLogo, mailLogo } from "@/assets/icons";
+import { linkdinLogo, mailLogo, doubleChevronUp } from "@/assets/icons";
 
 const Container = styled.div`
     height: 168px;
     background: var(--tertiary);
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -17,6 +18,7 @@ const Container = styled.div`
 const Links = styled.div`
     display: flex;
     gap: 24px;
+    margin-top: 16px;
 `;
 
 const Link = styled.a`
@@ -31,6 +33,28 @@ const Copyright = styled.div`
     font-size: 14px;
 `;
 
+const ScrollToTopBtn = styled.div`
+    position: absolute;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+
+    background: var(--secondary);
+    color: var(--tertiary);
+    text-align: center;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+`;
+
 const Footer: React.FC = () => {
     const links = [
         {
@@ -42,8 +66,13 @@ const Footer: React.FC = () => {
         }
     ];
 
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <Container>
+            <ScrollToTopBtn onClick={scrollToTop}>{doubleChevronUp}</ScrollToTopBtn>
             <Links>
                 {links.map(link => {
                     return (
