@@ -2,21 +2,10 @@
 
 import Image from "next/image";
 import { useMediaQuery } from 'react-responsive'
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import logo from "../assets/images/logo.png"
 import { closeIcon, hamburger } from "@/assets/icons";
 import { useEffect, useState } from "react";
-
-const slideFromRight = keyframes`
-  0% {
-    opacity:0;
-    right: -480px;
-  }
-  100% {
-    opacity:1;
-    right: 0px;
-  }
-`;
 
 const Container = styled.div`
     position: sticky;
@@ -110,15 +99,13 @@ const Top = styled.div`
     }
 `;
 
-const MobileNavbar = styled.div<{ $toggle: boolean, $isMobile: boolean }>`
-    animation: ${slideFromRight} 0.3s linear;
+const MobileNavbar = styled.div<{ $toggle: boolean }>`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     isolation: isolate;
     z-index: 1000;
     position: fixed;
-    width: 0px;
     right: ${({ $toggle }) => ($toggle ? "0px" : "-500px")};
     height: 100%;
 
@@ -146,13 +133,10 @@ const Navbar: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-      setIsMounted(true);
-      setToggle(false);
+        setIsMounted(true);
     }, []);
   
-    if (!isMounted) {
-      return null;
-    }
+    
 
     const links = [
         {
@@ -166,69 +150,71 @@ const Navbar: React.FC = () => {
             url: "#contact",
         }
     ];
-    return (
-        <Container>
-            <Top>
-                <Logo>
-                    <Link href="#hero">
+    if (!isMounted) {
+        return null;
+    } else {
+        return (
+            <Container>
+                <Top>
+                    <Logo>
+                        <Link href="#hero">
+                            <Image
+                                src={logo}
+                                alt=""
+                                height="48"
+                                width="48"
+                                priority
+                            />
+                        </Link>
+                    </Logo>
+                    <div>
+                        {isMobile ? (
+                            <Hamburger onClick={() => { setToggle(!toggle); }}>
+                                {hamburger}
+                            </Hamburger>
+                        ) : (
+                            <Links>
+                                {links.map(link => {
+                                    return (
+                                        <Link
+                                            key={Math.random()}
+                                            href={link.url}
+                                        >
+                                            {link.text}
+                                        </Link>
+                                    )
+                                })}
+                            </Links>
+                        )}
+                    </div>
+                </Top>
+                <MobileNavbar $toggle={toggle}>
+                    <CloseBtn onClick={() => { setToggle(!toggle); }}>{closeIcon}</CloseBtn>
+                    <div className="logo">
                         <Image
                             src={logo}
                             alt=""
-                            height="48"
-                            width="48"
-                            priority
+                            height="100"
+                            width="100"
                         />
-                    </Link>
-                </Logo>
-                <div>
-                    {isMobile && (
-                        <Hamburger onClick={() => { setToggle(!toggle); }}>
-                            {hamburger}
-                        </Hamburger>
-                    )}
-                    {!isMobile && (
-                        <Links>
-                            {links.map(link => {
-                                return (
-                                    <Link
-                                        key={Math.random()}
-                                        href={link.url}
-                                    >
-                                        {link.text}
-                                    </Link>
-                                )
-                            })}
-                        </Links>
-                    )}
-                </div>
-            </Top>
-            <MobileNavbar $toggle={toggle} $isMobile={isMobile} style={{right: toggle ? "0px" : "-500px"}}>
-                <CloseBtn onClick={() => { setToggle(!toggle); }}>{closeIcon}</CloseBtn>
-                <div className="logo">
-                    <Image
-                        src={logo}
-                        alt=""
-                        height="100"
-                        width="100"
-                    />
-                </div>
-                <Links>
-                    {links.map(link => {
-                        return (
-                            <Link
-                                key={Math.random()}
-                                href={link.url}
-                                onClick={() => { setToggle(!toggle); }}
-                            >
-                                {link.text}
-                            </Link>
-                        )
-                    })}
-                </Links>
-            </MobileNavbar>
-            
-        </Container>
-    );
+                    </div>
+                    <Links>
+                        {links.map(link => {
+                            return (
+                                <Link
+                                    key={Math.random()}
+                                    href={link.url}
+                                    onClick={() => { setToggle(!toggle); }}
+                                >
+                                    {link.text}
+                                </Link>
+                            )
+                        })}
+                    </Links>
+                </MobileNavbar>
+            </Container>
+        );
+    }
 };
 
 export default Navbar;

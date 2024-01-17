@@ -1,13 +1,12 @@
 'use client';
 
 import styled from "styled-components";
-import Button from "./shared/button";
 import { useEffect, useState } from "react";
 
 const Hero = styled.div`
     position: relative;
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 48px);
     width: 100%;
 `;
 

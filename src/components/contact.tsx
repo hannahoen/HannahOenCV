@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
     
     if (state.succeeded) {
         return (
-            <Container>
+            <Container id="contact">
                 <Content>
                     <Header text="Don't be shy!"/>
                     Thanks for contacting! I will get back to you as soon as possible 👩‍💻
@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
         );
     }
     return (
-        <Container>
+        <Container id="contact">
             <Content>
                 <Header text="Don't be shy!"/>
                 <div>Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.</div>

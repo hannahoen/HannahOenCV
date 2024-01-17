@@ -60,13 +60,13 @@ const Footer: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-      setIsMounted(true);
+        setTimeout(() => {setIsMounted(true);}, 500)
     }, []);
   
     if (!isMounted) {
       return null;
     }
-    
+
     const links = [
         {
             icon: linkdinLogo,
