@@ -7,21 +7,26 @@ import Header from "./shared/header";
 const Container = styled.div`
     position: relative;
     display: flex;
-    height: calc(100vh - 168px - 56px);
+    min-height: 100px;
     width: 100%;
     z-index: 990;
+    padding-top: 72px;
 
     display: flex;
     justify-content: center;
 `;
 
 const Content = styled.div`
-    width: 75%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 64px;
+
+    @media(max-width: 1023px) {
+      width: 100%;
+    }
 `;
 
 const ContactForm = styled.form`

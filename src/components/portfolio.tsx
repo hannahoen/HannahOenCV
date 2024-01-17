@@ -22,6 +22,10 @@ const Content = styled.div`
     align-items: center;
     justify-content: center;
     gap: 64px;
+
+    @media(max-width: 1023px) {
+      width: 100%;
+    }
 `;
 
 const Portfolio: React.FC = () => {
