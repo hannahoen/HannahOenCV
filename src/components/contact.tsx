@@ -11,6 +11,7 @@ const Container = styled.div`
     width: 100%;
     z-index: 990;
     padding-top: 72px;
+    margin-bottom: 48px;
 
     display: flex;
     justify-content: center;
