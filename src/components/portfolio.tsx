@@ -33,6 +33,7 @@ const Portfolio: React.FC = () => {
         <Container id="portfolio">
             <Content>
                 <Header text="Portfolio"/>
+                Coming asap! 🙏
             </Content>
         </Container>
     );
