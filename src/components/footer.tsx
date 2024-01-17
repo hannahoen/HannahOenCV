@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { linkdinLogo, mailLogo, doubleChevronUp } from "@/assets/icons";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     height: 168px;
@@ -56,6 +57,16 @@ const ScrollToTopBtn = styled.div`
 `;
 
 const Footer: React.FC = () => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
+  
+    if (!isMounted) {
+      return null;
+    }
+    
     const links = [
         {
             icon: linkdinLogo,

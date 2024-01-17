@@ -41,7 +41,6 @@ export const hamburger: JSX.Element = (
 export const closeIcon: JSX.Element = (
     <svg width="299" height="299" viewBox="0 0 299 299" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="41.5061" y1="45.0637" x2="250" y2="253.558" stroke="#902923" strokeWidth="29" strokeLinecap="round"/>
-        <line x1="250" y1="44.5061" x2="41.5061" y2="253" stroke="#902923" strokeWidth="29" stroke-Linecap="round"/>
+        <line x1="250" y1="44.5061" x2="41.5061" y2="253" stroke="#902923" strokeWidth="29" strokeLinecap="round"/>
     </svg>
-
 );

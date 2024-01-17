@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "../shared/header";
 import ExperienceNode from "./experienceNode";
 import hannah from "../../assets/images/hannah.png";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     position: relative;
@@ -127,6 +128,15 @@ const Intro = styled.div`
 `;
 
 const About: React.FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
     const personalInfo = [
       {
         label: "Location",

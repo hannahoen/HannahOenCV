@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import Header from "./shared/header";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     position: relative;
@@ -29,6 +30,15 @@ const Content = styled.div`
 `;
 
 const Portfolio: React.FC = () => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
+  
+    if (!isMounted) {
+      return null;
+    }
     return (
         <Container id="portfolio">
             <Content>

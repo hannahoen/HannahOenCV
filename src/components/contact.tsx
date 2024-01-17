@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { useForm, ValidationError } from '@formspree/react';
 import Header from "./shared/header";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     position: relative;
@@ -60,7 +61,17 @@ const SubmitBtn = styled.button`
 `;
 
 const Contact: React.FC = () => {
+    const [isMounted, setIsMounted] = useState(false);
     const [state, handleSubmit] = useForm("xyyrzbla");
+
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
+  
+    if (!isMounted) {
+      return null;
+    }
+    
     if (state.succeeded) {
         return (
             <Container>

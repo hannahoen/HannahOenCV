@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import Button from "./shared/button";
+import { useEffect, useState } from "react";
 
 const Hero = styled.div`
     position: relative;
@@ -52,6 +53,15 @@ const ContactBtn = styled.a`
 `;
 
 const Landing: React.FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
     return (
         <Hero id="hero">
             <Heading>

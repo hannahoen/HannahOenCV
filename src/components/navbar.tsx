@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import styled, { keyframes } from "styled-components";
 import logo from "../assets/images/logo.png"
 import { closeIcon, hamburger } from "@/assets/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const slideFromRight = keyframes`
   0% {
@@ -25,6 +25,7 @@ const Container = styled.div`
     background: var(--secondary);
     color: var(--tertiary);
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 80px;
@@ -96,7 +97,20 @@ const Link = styled.a`
     }
 `;
 
-const MobileNavbar = styled.div<{ toggle: boolean; isMobile: boolean }>`
+const Top = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+
+    @media(max-width: 500px) {
+        padding: 0px;
+        width: 100%;
+    }
+`;
+
+const MobileNavbar = styled.div<{ $toggle: boolean, $isMobile: boolean }>`
     animation: ${slideFromRight} 0.3s linear;
     display: flex;
     flex-direction: column;
@@ -104,14 +118,18 @@ const MobileNavbar = styled.div<{ toggle: boolean; isMobile: boolean }>`
     isolation: isolate;
     z-index: 1000;
     position: fixed;
-    width: ${(props) => (props.isMobile ? "100%" : "0px")};
-    right: ${(props) => (props.toggle ? "0px" : "-500px")};
+    width: 0px;
+    right: ${({ $toggle }) => ($toggle ? "0px" : "-500px")};
     height: 100%;
 
     background: var(--secondary);
     transition: right 1s ease;
     bottom: 0px;
     padding: 24px;
+
+    @media(max-width: 500px) {
+        width: 100%;
+    }
 
     .logo{
         width: 100%;
@@ -124,6 +142,17 @@ const MobileNavbar = styled.div<{ toggle: boolean; isMobile: boolean }>`
 const Navbar: React.FC = () => {
     const [toggle, setToggle] = useState<boolean>(false);
     const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+      setIsMounted(true);
+      setToggle(false);
+    }, []);
+  
+    if (!isMounted) {
+      return null;
+    }
 
     const links = [
         {
@@ -139,33 +168,41 @@ const Navbar: React.FC = () => {
     ];
     return (
         <Container>
-            <Logo>
-                <Link href="#hero">
-                    <Image
-                        src={logo}
-                        alt=""
-                        height="48"
-                        width="48"
-                    />
-                </Link>
-            </Logo>
-            {isMobile ? (
-                <Hamburger onClick={() => { setToggle(!toggle); }}>{hamburger}</Hamburger>
-            ) : (
-                <Links>
-                    {links.map(link => {
-                        return (
-                            <Link
-                                key={Math.random()}
-                                href={link.url}
-                            >
-                                {link.text}
-                            </Link>
-                        )
-                    })}
-                </Links>
-            )}
-            <MobileNavbar toggle={toggle} isMobile={isMobile}>
+            <Top>
+                <Logo>
+                    <Link href="#hero">
+                        <Image
+                            src={logo}
+                            alt=""
+                            height="48"
+                            width="48"
+                            priority
+                        />
+                    </Link>
+                </Logo>
+                <div>
+                    {isMobile && (
+                        <Hamburger onClick={() => { setToggle(!toggle); }}>
+                            {hamburger}
+                        </Hamburger>
+                    )}
+                    {!isMobile && (
+                        <Links>
+                            {links.map(link => {
+                                return (
+                                    <Link
+                                        key={Math.random()}
+                                        href={link.url}
+                                    >
+                                        {link.text}
+                                    </Link>
+                                )
+                            })}
+                        </Links>
+                    )}
+                </div>
+            </Top>
+            <MobileNavbar $toggle={toggle} $isMobile={isMobile} style={{right: toggle ? "0px" : "-500px"}}>
                 <CloseBtn onClick={() => { setToggle(!toggle); }}>{closeIcon}</CloseBtn>
                 <div className="logo">
                     <Image
@@ -189,6 +226,7 @@ const Navbar: React.FC = () => {
                     })}
                 </Links>
             </MobileNavbar>
+            
         </Container>
     );
 };
