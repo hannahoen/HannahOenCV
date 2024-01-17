@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
         <Container>
             <Content>
                 <Header text="Don't be shy!"/>
-                <div>Have a question or want to work together? Leave your details and I&aposll get back to you as soon as possible.</div>
+                <div>Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.</div>
                 <ContactForm onSubmit={handleSubmit}>
                     <input
                         id="email"
