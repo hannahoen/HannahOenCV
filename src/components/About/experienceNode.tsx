@@ -107,13 +107,13 @@ const ExperienceNode: React.FC<IProps> = ({
             {isExperience ? (
                 <Info>
                     <Row><Years>{data.years}</Years> </Row>
-                    <Heading><span className="position">{data.position}</span> | <Link href={data.url}>{data.company}</Link></Heading>
+                    <Heading><span className="position">{data.position}</span> | <Link href={data.url} target="_blank">{data.company}</Link></Heading>
                     <AdditionalInfo>{data.additionInfo}</AdditionalInfo>
                 </Info>
             ) : (
                 <Info>
                     <Row><Years>{data.years}</Years></Row>
-                    <Link>{data.university}</Link>
+                    <Link href={data.url} target="_blank">{data.university}</Link>
                     <Heading><span className="degree">{data.degree}</span></Heading>
                     <AdditionalInfo>{data.additionInfo}</AdditionalInfo>
                 </Info>
