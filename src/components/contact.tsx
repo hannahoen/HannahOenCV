@@ -29,6 +29,7 @@ const ContactForm = styled.form`
     flex-direction: column;
     gap: 16px;
     width: 100%;
+    max-width: 960px;
 
     input, textarea {
         border: 0px;
