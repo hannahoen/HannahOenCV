@@ -197,7 +197,7 @@ const About: React.FC = () => {
             <div className="personalInfo">
               {personalInfo.map(p => {
                 return (
-                  <div className="box">
+                  <div className="box" key={Math.random()}>
                     <div className="label">{p.label}</div>
                     <div>{p.info}</div>
                   </div>
@@ -211,6 +211,7 @@ const About: React.FC = () => {
                 {experiences.map(exp => {
                   return (
                     <ExperienceNode
+                      key={Math.random()}
                       data={exp}
                     />
                   )
