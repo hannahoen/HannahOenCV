@@ -46,12 +46,14 @@ const Years = styled.div`
 `;
 
 const Link = styled.a`
-    font-size: 14px;
-    font-weight: 500;
+    color: var(--tertiary);
     text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
 
     &:hover {
-        text-decoration:underline;
+        text-decoration: underline;
+        color: var(--quinary);
     }
 `;
 

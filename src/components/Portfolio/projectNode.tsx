@@ -66,6 +66,11 @@ const CompanyLink = styled.a`
     font-weight: 700;
     font-size: 14px;
 
+    &:hover {
+        text-decoration: underline;
+        color: var(--quinary);
+    }
+
     @media(max-width: 700px) {
         width: 40%;
     }
