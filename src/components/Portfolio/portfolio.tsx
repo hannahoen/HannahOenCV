@@ -61,7 +61,7 @@ const Portfolio: React.FC = () => {
             url: "https://dipai.no",
             image: dipai,
             description: "Revamp Dipai's website through the development of a bespoke WordPress theme tailored to integrate with their current CMS. This custom theme, crafted to align with the Figma sketches by a UX designer. I handle tasks such as adding new content and updating existing content as needed, ensuring the website remains dynamic and up-to-date.",
-            techStack: "Wordpress, PHP, Bootstrap, Figma"
+            techStack: "Wordpress, PHP, Javascript, Bootstrap, Figma"
 
         }, {
             title: "Website Redesign",
