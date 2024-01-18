@@ -3,7 +3,7 @@
 import Landing from '@/components/landing';
 import About from '@/components/About/about';
 import styled from 'styled-components';
-import Portfolio from '@/components/portfolio';
+import Portfolio from '@/components/Portfolio/portfolio';
 import Contact from '@/components/contact';
 import { useEffect, useState } from 'react';
 

@@ -196,7 +196,7 @@ const About: React.FC = () => {
             <div className="hannah">
               <Image
                 src={hannah}
-                alt=""
+                alt="Hannah"
                 height="300"
                 width="300"
                 />
