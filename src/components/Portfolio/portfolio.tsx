@@ -60,7 +60,7 @@ const Portfolio: React.FC = () => {
             company: "Dipai AS",
             url: "https://dipai.no",
             image: dipai,
-            description: "Redesign of Dipai's website by creating a new wordpress theme for their existing Wordpress CMS, and implementing design from UX designer's Figma sketches.",
+            description: "Revamp Dipai's website through the development of a bespoke WordPress theme tailored to seamlessly integrate with their current CMS. This redesign will be driven by the implementation of cutting-edge design elements derived from the Figma sketches crafted by a UX designer.",
             techStack: "Wordpress, PHP, Bootstrap, Figma"
 
         }, {
@@ -68,7 +68,7 @@ const Portfolio: React.FC = () => {
             company: "Axbit AS",
             url: "https://axbit.no",
             image: axbit,
-            description: "Redesign of Axbit's website from scratch, using Umbraco headless CMS and React Typescript, and implementing design from UX designer's Figma sketches.",
+            description: "Completely overhaul Axbit's website by building it from the ground up, employing the Umbraco headless CMS and React Typescript for enhanced functionality and dynamic user experiences. Integrate the meticulously crafted design elements from the Figma sketches provided by a UX designer",
             techStack: "React, TypeScript, Umbraco, Figma"
 
         }, {

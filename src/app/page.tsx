@@ -8,6 +8,8 @@ import Contact from '@/components/contact';
 import { useEffect, useState } from 'react';
 
 const Container = styled.div`
+  padding-bottom: 64px;
+
   @media(max-width: 1023px) {
     padding: 24px;
   }
