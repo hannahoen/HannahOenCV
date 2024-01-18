@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Hero = styled.div`
     position: relative;
     display: flex;
-    height: calc(100vh - 48px);
+    height: calc(100vh - 48px - 128px);
     width: 100%;
 `;
 

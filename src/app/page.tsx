@@ -9,6 +9,9 @@ import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
 
   @media(max-width: 1023px) {
     padding: 24px;
