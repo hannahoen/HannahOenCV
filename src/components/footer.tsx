@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
                     );
                 })}
             </Links>
-            <Copyright>HANNAH MICHELLE OEN @2024</Copyright>
+            <Copyright>HANNAH MICHELLE OEN @{new Date().getFullYear()}</Copyright>
         </Container>
     );
 };
