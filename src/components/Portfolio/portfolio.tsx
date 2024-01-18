@@ -72,11 +72,11 @@ const Portfolio: React.FC = () => {
             techStack: "React, TypeScript, Umbraco, Figma"
 
         }, {
-            title: "Visual content",
+            title: "Visual content/ Graphic design",
             company: "Blink Trafikkskole Ålesund AS",
             url: "https://blinkskole.no",
             image: blink,
-            description: "Various advertising posters, design for folder cover and creating a learning document for driving instrctors that is compatible for GoodNotes.",
+            description: "Designing custom posters for effective marketing, as well as creating professional office materials. I have also developed interactive educational material specifically aimed for driving instructors, emphasizing engagement and pedagogical value.",
             techStack: "Figma, Photoshop"
 
         }
