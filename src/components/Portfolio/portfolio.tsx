@@ -72,7 +72,7 @@ const Portfolio: React.FC = () => {
             techStack: "React, TypeScript, Umbraco, Figma"
 
         }, {
-            title: "Visual content/ Graphic design",
+            title: "Visual content / Graphic design",
             company: "Blink Trafikkskole Ålesund AS",
             url: "https://blinkskole.no",
             image: blink,
