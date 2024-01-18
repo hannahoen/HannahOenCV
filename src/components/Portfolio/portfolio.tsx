@@ -89,7 +89,7 @@ const Portfolio: React.FC = () => {
                 <Projects>
                     {projects.map(project => {
                         return (
-                            <ProjectNode project={project}/>
+                            <ProjectNode project={project} key={Math.random()}/>
                         )
                     })}
                 </Projects>
