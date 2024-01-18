@@ -57,7 +57,11 @@ const SubmitBtn = styled.button`
     padding: 16px 8px;
     cursor: pointer;
 
-    background: var(--tertiary)
+    background: var(--tertiary);
+
+    &:hover {
+        background: var(--quinary);
+    }
 `;
 
 const Contact: React.FC = () => {

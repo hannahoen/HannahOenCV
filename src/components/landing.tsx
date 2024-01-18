@@ -37,6 +37,7 @@ const HeadingLine = styled.div`
 
 const Highlight = styled.span`
   color: var(--tertiary);
+  font-weight: 500;
 `;
 
 const ContactBtn = styled.a`
@@ -49,6 +50,10 @@ const ContactBtn = styled.a`
     color: var(--secondary);
     font-weight: 500;
     font-size: 18px;
+
+    &:hover {
+      background: var(--quinary);
+    }
 `;
 
 const Landing: React.FC = () => {

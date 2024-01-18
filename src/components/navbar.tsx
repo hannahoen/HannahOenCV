@@ -81,6 +81,10 @@ const Link = styled.a`
     display: flex;
     align-items: center;
 
+    &:hover {
+        color: var(--quinary);
+    }
+
     @media(max-width: 500px) {
         font-size: 28px;
     }
