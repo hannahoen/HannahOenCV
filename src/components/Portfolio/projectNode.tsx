@@ -54,7 +54,8 @@ const TextBox = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 16px;
+            text-align: center;
         }
     }
 `;
@@ -64,6 +65,10 @@ const CompanyLink = styled.a`
     text-transform: uppercase;
     font-weight: 700;
     font-size: 14px;
+
+    @media(max-width: 700px) {
+        width: 40%;
+    }
 `;
 
 interface IProps {
