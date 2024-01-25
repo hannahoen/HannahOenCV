@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Landing } from '@/components/landing';
-import { About } from '@/components/about/about';
-import { Portfolio } from '@/components/portfolio/portfolio';
+import { About } from '@/components/tempAbout/about';
+import { Portfolio } from '@/components/tempPortfolio/portfolio';
 import { Contact } from '@/components/contact';
 
 const Container = styled.div`
