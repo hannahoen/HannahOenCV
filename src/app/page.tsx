@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Landing } from '@/components/landing';
-import About from '@/components/about/about';
-import Portfolio from '@/components/portfolio/portfolio';
+import { About } from '@/components/about/about';
+import { Portfolio } from '@/components/portfolio/portfolio';
 import { Contact } from '@/components/contact';
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const Container = styled.div`
 	@media(max-width: 1023px) {
 		padding: 24px;
 		gap: 64px;
-	}
+	} 
 `;
 
 export default function Home() {

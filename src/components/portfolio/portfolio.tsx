@@ -42,7 +42,7 @@ const Projects = styled.div`
     }
 `;
 
-const Portfolio: React.FC = () => {
+export const Portfolio: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -68,5 +68,3 @@ const Portfolio: React.FC = () => {
         );  
     }   
 };
-
-export default Portfolio;
