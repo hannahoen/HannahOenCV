@@ -149,7 +149,7 @@ const PersonalInfoNode = styled.div`
 	}
 `;
 
-export const About: React.FC = () => {
+const About: React.FC = () => {
 	const [isMounted, setIsMounted] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -209,3 +209,5 @@ export const About: React.FC = () => {
 		);
 	}	
 };
+
+export default About;
