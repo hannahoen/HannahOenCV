@@ -1,6 +1,6 @@
 ## Personal portfolio / CV - Hannah Oen
 
-Open [hannahoen.github.io/HannahOenCV](hannahoen.github.io/HannahOenCV) with your browser to see the result.
+Open [hannahoen.github.io/HannahOenCV](https://hannahoen.github.io/HannahOenCV) with your browser to see the result.
 
 ### Tech stack
 
