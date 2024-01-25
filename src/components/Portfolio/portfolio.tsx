@@ -1,12 +1,11 @@
 'use client';
 
-import styled from "styled-components";
-import Header from "../shared/header";
 import { useEffect, useState } from "react";
-import dipai from "../../assets/images/dipai.png";
-import axbit from "../../assets/images/axbit.png";
-import blink from "../../assets/images/blink.png";
-import ProjectNode from "./projectNode";
+import styled from "styled-components";
+
+import { projects } from "@/assets/data";
+import { Header } from "../shared/header";
+import { ProjectNode } from "./projectNode";
 
 const Container = styled.div`
     position: relative;
@@ -29,7 +28,7 @@ const Content = styled.div`
     gap: 64px;
 
     @media(max-width: 1023px) {
-      width: 100%;
+        width: 100%;
     }
 `;
 
@@ -43,59 +42,29 @@ const Projects = styled.div`
     }
 `;
 
-const Portfolio: React.FC = () => {
+export const Portfolio: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-      setIsMounted(true);
+        setIsMounted(true);
     }, []);
   
     if (!isMounted) {
-      return null;
-    }
-
-    const projects = [
-        {
-            title: "Website Redesign & maintenance",
-            company: "Dipai AS",
-            url: "https://dipai.no",
-            image: dipai,
-            description: "Revamp Dipai's website through the development of a WordPress theme tailored to integrate with their current CMS. Integrated with design elements from Figma sketches provided by a UX designer. I handle tasks such as adding new content and updating existing content as needed, ensuring the website remains dynamic and up-to-date.",
-            techStack: "Wordpress, PHP, Javascript, Bootstrap, Figma"
-
-        }, {
-            title: "Website Redesign",
-            company: "Axbit AS",
-            url: "https://axbit.no",
-            image: axbit,
-            description: "Completely overhaul Axbit's website by building it from the ground up, employing the Umbraco headless CMS and React Typescript for enhanced functionality and dynamic user experiences. Integrated with design elements from Figma sketches provided by a UX designer.",
-            techStack: "React, TypeScript, Umbraco, Figma"
-
-        }, {
-            title: "Visual design / graphic design",
-            company: "Blink Trafikkskole Ålesund AS",
-            url: "https://blinkskole.no",
-            image: blink,
-            description: "Designing custom posters for marketing, as well as creating professional office materials. I have also created interactive educational material specifically aimed for driving instructors, emphasizing engagement and pedagogical value.",
-            techStack: "Figma, Photoshop"
-
-        }
-    ]
-
-    return (
-        <Container id="portfolio">
-            <Content>
-                <Header text="Portfolio"/>
-                <Projects>
-                    {projects.map(project => {
-                        return (
-                            <ProjectNode project={project} key={Math.random()}/>
-                        )
-                    })}
-                </Projects>
-            </Content>
-        </Container>
-    );
+        return null;
+    } else {
+        return (
+            <Container id="portfolio">
+                <Content>
+                    <Header text="Portfolio"/>
+                    <Projects>
+                        {projects.map(project => {
+                            return (
+                                <ProjectNode project={project} key={Math.random()}/>
+                            )
+                        })}
+                    </Projects>
+                </Content>
+            </Container>
+        );  
+    }   
 };
-
-export default Portfolio;

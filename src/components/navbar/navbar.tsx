@@ -1,11 +1,13 @@
 'use client';
 
-import Image from "next/image";
-import { useMediaQuery } from 'react-responsive'
-import styled from "styled-components";
-import logo from "../assets/images/logo.png"
-import { closeIcon, hamburger } from "@/assets/icons";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import styled from "styled-components";
+import { useMediaQuery } from 'react-responsive'
+
+import { closeIcon, hamburger } from "@/assets/icons";
+import logo from "../../assets/images/logo.png";
+import { NavbarLinks } from "./navbarLinks";
 
 const Container = styled.div`
     position: sticky;
@@ -51,25 +53,6 @@ const CloseBtn = styled.div`
     svg {
         width: 32px;
         height: 32px;
-    }
-`;
-
-const Links = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 48px;
-    height: 56px;
-
-    background: var(--secondary);
-    color: var(--tertiary);
-
-    @media(max-width: 500px) {
-        justify-content: flex-start;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
     }
 `;
 
@@ -130,30 +113,15 @@ const MobileNavbar = styled.div<{ $toggle: boolean }>`
     }
 `;
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
     const [toggle, setToggle] = useState<boolean>(false);
-    const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
-
     const [isMounted, setIsMounted] = useState(false);
+    const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
   
-    
-
-    const links = [
-        {
-            text: "About",
-            url: "#about",
-        }, {
-            text: "Portfolio",
-            url: "#portfolio",
-        }, {
-            text: "Contact",
-            url: "#contact",
-        }
-    ];
     if (!isMounted) {
         return null;
     } else {
@@ -177,18 +145,7 @@ const Navbar: React.FC = () => {
                                 {hamburger}
                             </Hamburger>
                         ) : (
-                            <Links>
-                                {links.map(link => {
-                                    return (
-                                        <Link
-                                            key={Math.random()}
-                                            href={link.url}
-                                        >
-                                            {link.text}
-                                        </Link>
-                                    )
-                                })}
-                            </Links>
+                            <NavbarLinks />
                         )}
                     </div>
                 </Top>
@@ -202,23 +159,9 @@ const Navbar: React.FC = () => {
                             width="100"
                         />
                     </div>
-                    <Links>
-                        {links.map(link => {
-                            return (
-                                <Link
-                                    key={Math.random()}
-                                    href={link.url}
-                                    onClick={() => { setToggle(!toggle); }}
-                                >
-                                    {link.text}
-                                </Link>
-                            )
-                        })}
-                    </Links>
+                    <NavbarLinks />
                 </MobileNavbar>
             </Container>
         );
     }
 };
-
-export default Navbar;

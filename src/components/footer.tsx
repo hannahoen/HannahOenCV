@@ -1,8 +1,10 @@
 'use client';
 
-import styled from "styled-components";
-import { linkdinLogo, mailLogo, doubleChevronUp } from "@/assets/icons";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+import { footerLinks, sharedText } from "@/assets/data";
+import { doubleChevronUp } from "@/assets/icons";
 
 const Container = styled.div`
     height: 168px;
@@ -56,46 +58,34 @@ const ScrollToTopBtn = styled.div`
     }
 `;
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {setIsMounted(true);}, 500)
     }, []);
-  
-    if (!isMounted) {
-      return null;
-    }
-
-    const links = [
-        {
-            icon: linkdinLogo,
-            url: "https://www.linkedin.com/in/hannah-michelle-oen-233774b3/"
-        }, {
-            icon: mailLogo,
-            url: "mailto:hannahmich@gmail.com"
-        }
-    ];
 
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     }
 
-    return (
-        <Container>
-            <ScrollToTopBtn onClick={scrollToTop}>{doubleChevronUp}</ScrollToTopBtn>
-            <Links>
-                {links.map(link => {
-                    return (
-                        <Link key={Math.random()} href={link.url}>
-                            {link.icon}
-                        </Link>
-                    );
-                })}
-            </Links>
-            <Copyright>HANNAH MICHELLE OEN @{new Date().getFullYear()}</Copyright>
-        </Container>
-    );
+    if (!isMounted) {
+        return null;
+    } else {
+        return (
+            <Container>
+                <ScrollToTopBtn onClick={scrollToTop}>{doubleChevronUp}</ScrollToTopBtn>
+                <Links>
+                    {footerLinks.map(link => {
+                        return (
+                            <Link key={Math.random()} href={link.url}>
+                                {link.icon}
+                            </Link>
+                        );
+                    })}
+                </Links>
+                <Copyright>{sharedText.fullName.toUpperCase()} @{new Date().getFullYear()}</Copyright>
+            </Container>
+        );
+    }    
 };
-
-export default Footer;

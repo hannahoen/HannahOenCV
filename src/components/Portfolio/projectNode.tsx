@@ -89,7 +89,7 @@ interface IProjects {
     techStack: string;
 }
 
-const ProjectNode: React.FC<IProps> = ({
+export const ProjectNode: React.FC<IProps> = ({
     project
 }) => {
     return (
@@ -98,7 +98,11 @@ const ProjectNode: React.FC<IProps> = ({
                     <Image
                         src={project.image}
                         alt={project.company}
-                        layout="responsive"
+                        sizes="100vw"
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                          }}
                     />    
                 </ImageBox> 
                 <TextBox>
@@ -109,5 +113,3 @@ const ProjectNode: React.FC<IProps> = ({
         </Container>
     );
 };
-
-export default ProjectNode;

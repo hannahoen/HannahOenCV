@@ -25,12 +25,10 @@ interface IProps {
     text: string;
 }
 
-const Header: React.FC<IProps> = ({text}) => {
+export const Header: React.FC<IProps> = ({text}) => {
     return (
         <Container>
             {text}
         </Container>
     );
 };
-
-export default Header;

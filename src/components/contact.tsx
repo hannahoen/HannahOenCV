@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useForm, ValidationError } from '@formspree/react';
-import Header from "./shared/header";
-import { useEffect, useState } from "react";
+
+import { contactText, sharedText } from "@/assets/data";
+import { Header } from "./shared/header";
 
 const Container = styled.div`
     position: relative;
@@ -27,7 +29,7 @@ const Content = styled.div`
     gap: 64px;
 
     @media(max-width: 1023px) {
-      width: 100%;
+        width: 100%;
     }
 `;
 
@@ -64,7 +66,7 @@ const SubmitBtn = styled.button`
     }
 `;
 
-const Contact: React.FC = () => {
+export const Contact: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
     const [state, handleSubmit] = useForm("xyyrzbla");
 
@@ -73,53 +75,45 @@ const Contact: React.FC = () => {
     }, []);
   
     if (!isMounted) {
-      return null;
-    }
-    
-    if (state.succeeded) {
+        return null;
+    } else {
         return (
             <Container id="contact">
                 <Content>
                     <Header text="Don't be shy!"/>
-                    Thanks for contacting! I will get back to you as soon as possible 👩‍💻
+                    {state.succeeded ? (
+                        <>{contactText.submitMsg}</>
+                    ) : (
+                        <>
+                            <div>{contactText.something}</div>
+                            <ContactForm onSubmit={handleSubmit}>
+                                <input
+                                    id="email"
+                                    type="email" 
+                                    name="email"
+                                    placeholder="Email"
+                                />
+                                <ValidationError 
+                                    prefix="Email" 
+                                    field="email"
+                                    errors={state.errors}
+                                />
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Message"
+                                />
+                                <ValidationError 
+                                    prefix="Message" 
+                                    field="message"
+                                    errors={state.errors}
+                                />
+                                <SubmitBtn type="submit" disabled={state.submitting}>{sharedText.submit}</SubmitBtn>
+                            </ContactForm>
+                        </>
+                    )}
                 </Content>
             </Container>
         );
-    }
-    return (
-        <Container id="contact">
-            <Content>
-                <Header text="Don't be shy!"/>
-                <div>Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.</div>
-                <ContactForm onSubmit={handleSubmit}>
-                    <input
-                        id="email"
-                        type="email" 
-                        name="email"
-                        placeholder="Email"
-                    />
-                    <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                    />
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Message"
-                    />
-                    <ValidationError 
-                        prefix="Message" 
-                        field="message"
-                        errors={state.errors}
-                    />
-                    <SubmitBtn type="submit" disabled={state.submitting}> Submit </SubmitBtn>
-                </ContactForm>
-            </Content>
-            
-        </Container>
-        
-    );
+    }    
 };
-
-export default Contact;

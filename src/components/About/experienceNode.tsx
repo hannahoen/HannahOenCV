@@ -4,24 +4,22 @@ import { universityIcon, workIcon } from "@/assets/icons";
 import styled from "styled-components";
 
 const Container = styled.div`
-display: flex;
-gap: 24px;
-    
-
-&:before {
-    content: "";
-    position: relative;
-    top: 32px;
-    left: 40px;
-    bottom: 0;
-    height: calc(100% - 32px);
-    border-left: 1px solid var(--secondary);
-    z-index: -1;
-}
+    display: flex;
+    gap: 24px;
+        
+    &:before {
+        content: "";
+        position: relative;
+        top: 32px;
+        left: 40px;
+        bottom: 0;
+        height: calc(100% - 32px);
+        border-left: 1px solid var(--secondary);
+        z-index: -1;
+    }
 `;
 
 const Bullet = styled.div`
-
     svg {
         width: 32px;
         height: 32px;
@@ -58,19 +56,18 @@ const Link = styled.a`
 `;
 
 const Heading = styled.div`
-display: flex;
-align-items: center;
-gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-.position {
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
+    .position {
+        text-transform: uppercase;
+        font-weight: 700;
+    }
 `;
 
 const AdditionalInfo = styled.div`
-white-space: pre-line;
+    white-space: pre-line;
 `;
 
 const Row = styled.div`
@@ -78,7 +75,6 @@ const Row = styled.div`
     align-items: center;
     gap: 16px;
 `;
-
 
 interface IProps {
     isExperience?: boolean;
@@ -95,11 +91,9 @@ interface IExperience {
     additionInfo: string;
 }
 
-
-const ExperienceNode: React.FC<IProps> = ({
+export const ExperienceNode: React.FC<IProps> = ({
     isExperience = true,
     data
-
 }) => {
     return (
         <Container>
@@ -120,9 +114,6 @@ const ExperienceNode: React.FC<IProps> = ({
                     <AdditionalInfo>{data.additionInfo}</AdditionalInfo>
                 </Info>
             )}
-            
         </Container>
     );
 };
-
-export default ExperienceNode;
