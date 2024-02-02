@@ -159,7 +159,7 @@ export const Navbar: React.FC = () => {
                             width="100"
                         />
                     </div>
-                    <NavbarLinks />
+                    <NavbarLinks closeMobileNavbar={() => {setToggle(!toggle)}}/>
                 </MobileNavbar>
             </Container>
         );

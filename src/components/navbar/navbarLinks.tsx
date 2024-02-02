@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { navbarLinks } from "@/assets/data";
+import { useMediaQuery } from "react-responsive";
 
 
 const Links = styled.div`
@@ -40,7 +41,21 @@ const Link = styled.a`
     }
 `;
 
-export const NavbarLinks: React.FC = () => {
+interface IProps {
+    closeMobileNavbar?: () => void;
+}
+
+export const NavbarLinks: React.FC<IProps> = ({
+    closeMobileNavbar
+}) => {    
+    const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
+
+    const toggleNavbar = () =>{
+        if(isMobile && closeMobileNavbar){
+            closeMobileNavbar();
+        }
+    }
+
     return (
         <Links>
             {navbarLinks.map(link => {
@@ -48,6 +63,7 @@ export const NavbarLinks: React.FC = () => {
                     <Link
                         key={Math.random()}
                         href={link.url}
+                        onClick={() => {toggleNavbar();}}
                     >
                         {link.text}
                     </Link>
